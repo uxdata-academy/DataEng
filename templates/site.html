@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple E-Commerce Site</title>
+    <script>
+        async function handleButtonClick(action) {
+            const response = await fetch('/api/action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ action }),
+            });
+            const result = await response.json();
+            alert(result.message);
+        }
+    </script>
+</head>
+<body>
+    <h1>Simple E-Commerce Site</h1>
+    <button onclick="handleButtonClick('add_to_cart')">Add to Cart</button>
+    <button onclick="handleButtonClick('buy_now')">Buy Now</button>
+    <button onclick="handleButtonClick('checkout')">Check Out</button>
+</body>
+</html>
